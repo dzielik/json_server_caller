@@ -9,6 +9,15 @@ const server = app.listen(port, () => console.log(`Example app listening on port
 server.keepAliveTimeout = 120 * 1000;
 server.headersTimeout = 120 * 1000;
 
+function call() 
+{
+  const http = new XMLHttpRequest()
+  http.open("GET", "https://json-server-4isn.onrender.com/user")
+  http.send()
+  http.onload = () => console.log('called')
+}
+setInterval(call, 5000);
+
 const html = `
 <!DOCTYPE html>
 <html>

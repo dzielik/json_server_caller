@@ -28,7 +28,7 @@ https.get('https://json-server-4isn.onrender.com/user', (resp) => {
 }).on("error", (err) => {
   console.log("Error: " + err.message);
 });
-}, 60000);
+}, 300000);
 
 const html = `
 <!DOCTYPE html>

@@ -23,7 +23,7 @@ const html = `
         http.send()
         http.onload = () => console.log('called')
       }
-      setInterval(call, 600000);
+      setInterval(call, 5000);
     </script>
     <style>
       @import url("https://p.typekit.net/p.css?s=1&k=vnd5zic&ht=tk&f=39475.39476.39477.39478.39479.39480.39481.39482&a=18673890&app=typekit&e=css");

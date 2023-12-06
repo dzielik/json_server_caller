@@ -9,14 +9,28 @@ const server = app.listen(port, () => console.log(`Example app listening on port
 server.keepAliveTimeout = 120 * 1000;
 server.headersTimeout = 120 * 1000;
 
-function call() 
-{
-  const http = new XMLHttpRequest()
-  http.open("GET", "https://json-server-4isn.onrender.com/user")
-  http.send()
-  http.onload = () => console.log('called')
-}
-setInterval(call, 5000);
+setInterval(() => {
+  // runs every 2 seconds
+
+const https = require('https');
+
+https.get('https://json-server-4isn.onrender.com/user', (resp) => {
+  let data = '';
+
+  // A chunk of data has been received.
+  resp.on('data', (chunk) => {
+    data += chunk;
+  });
+
+  // The whole response has been received. Print out the result.
+  resp.on('end', () => {
+    console.log(JSON.parse(data).explanation);
+  });
+
+}).on("error", (err) => {
+  console.log("Error: " + err.message);
+});
+}, 2000);
 
 const html = `
 <!DOCTYPE html>

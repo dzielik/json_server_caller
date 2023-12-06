@@ -55,6 +55,7 @@ const html = `
   <body>
     <section>
       Hello from Render!
+      <button onclick="call()">Call</button>
     </section>
   </body>
 </html>
